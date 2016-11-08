@@ -1,0 +1,13 @@
+{
+  "name": "antd-local-icon",
+  "version": "0.1.0",
+  "description": "",
+  
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yedaodao/antd-local-icon.git"
+  },
+  
+  "author": "yedaodao",
+  "license": "GNU"
+}
