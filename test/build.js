@@ -20,20 +20,16 @@ let webpackConfig = {
             },
             {
                 test: function (abspath) {
-                    let mark = abspath.indexOf('/lib/style/index.less') !== -1;
-                    if (mark) {
-                        console.log(abspath);
-                    }
-                    return mark;
+                    return abspath.indexOf('/lib/style/index.less') !== -1;
                 },
-                loader: "style!css!less!" + path.resolve(__dirname, '../index.js')
+                loader: "style!css!less!" + path.resolve(__dirname, '../index.js') + '?url=' + path.resolve(__dirname, '/font/iconfont'),
             }
         ]
     }
 };
 
 describe('./index.js', function () {
-        this.timeout(60000);
+        this.timeout(120000);
         describe('#webpack-compile', ()=> {
             it('should compile icon', (done)=> {
                 webpack(webpackConfig, (err, stats)=> {

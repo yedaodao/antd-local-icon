@@ -1,19 +1,17 @@
 var less = require('less'),
     path = require('path');
 
-var cdnRegx = /https\:\/\/at\.alicdn\.com\/t\/font_/,
-    parser = null;
+var replacePrefix = ';\n@icon-url:"__var__";\n',
+    replaceRegx = /;\n/,
+    queryRegx = /\?.*url=([^&]+)/i;
 
 module.exports = function (source) {
     var callback = this.async();
-    less.parse(source, {
-        paths: [path.dirname(this.resource)]
-    }, function (err, tree) {
-        if (err) {
-            console.log(err);
-            return callback(err);
+    if (queryRegx.test(this.query)) {
+        var matches = queryRegx.exec(this.query);
+        if (matches.length >= 2) {
+            source = source.replace(replaceRegx, replacePrefix.replace('__var__', matches[1]));
         }
-        console.log(tree);
-        callback(null, source);
-    });
+    }
+    callback(null, source);
 };
