@@ -195,3 +195,6 @@ jspm_packages
 # Yarn Integrity file
 .yarn-integrity
 
+# custom
+.idea
+
