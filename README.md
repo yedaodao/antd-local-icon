@@ -11,7 +11,7 @@ A webpack loader for deploy icon files when using the [antd](https://github.com/
 
 3. Modify your `webpack.config.js` like following:
 
-```
+```javascript
 module.exports = {
 	//... your config
 	
