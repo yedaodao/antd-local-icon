@@ -21,7 +21,7 @@ module.exports = {
 			{
 				test: function(abspath) {
 				// extract 'index.less' in antd to load it using antd-local-icon
-					return (\.less).test(abspath) && abspath.indexOf('antd/lib/style/index.less') == -1;
+					return /\.less/.test(abspath) && abspath.indexOf('antd/lib/style/index.less') == -1;
 				},
 				loader: "style!css!less"
 			},
